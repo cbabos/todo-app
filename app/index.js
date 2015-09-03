@@ -24,7 +24,7 @@ switch (process.argv[2]) {
         taskUtils.searchTask('', taskUtils.showTask);
     break;
 
-    case 'del': 
+    case 'delete': 
         if (process.argv[3]) {
             taskUtils.searchTask(process.argv[3], taskUtils.delTask);
             taskUtils.writeTasks();
