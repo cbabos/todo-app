@@ -1,0 +1,10 @@
+#!/bin/bash
+TASKS_PATH=/Volumes/DATA/WorkFiles/Web/Yourweb/todo-app
+CURR_PATH=$(pwd)
+
+clear
+
+cd $TASKS_PATH
+npm --loglevel silent start $1 "$2" "$3" "$4" 
+
+cd $CURR_PATH
