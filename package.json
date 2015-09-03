@@ -1,0 +1,13 @@
+{
+  "name": "todo-app",
+  "version": "0.0.0",
+  "description": "Simple todo-app for learning purposes.",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app/index.js"
+  },
+  "author": "cbabos",
+  "license": "MIT",
+  "private": true
+}
