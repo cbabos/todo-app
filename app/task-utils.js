@@ -48,9 +48,19 @@ var taskUtil = {
         console.log(titleStyle(task.title + ' (' + 
             moment(task.created).fromNow()  + ')' +
             "\n===========================================\n") +
-            chalk.white(task.description) + "\n\n")
+            chalk.white(task.description) + "\n")
         return task;
     }, 
+    taskList: function() {
+        this.tasks.forEach(function(current) {
+            var titleStyle = current.completed ?
+                chalk.bold.yellow : chalk.bold.red;
+
+            console.log(
+                titleStyle('» ' + current.title + '')
+            );
+        });
+    },
     searchTask: function( searchString, cb ) {
         var search = new RegExp(searchString, 'i');
         tasks = this.tasks.map(function(current) {

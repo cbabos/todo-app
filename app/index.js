@@ -49,9 +49,11 @@ switch (process.argv[2]) {
     break;
 
     case 'show': 
-        var criteria = process.argv[3];
+        if (process.argv[3]) {
+            taskUtils.searchTask(process.argv[3], taskUtils.showTask);
+        }
     default:
     case 'list': 
-        taskUtils.searchTask(criteria || '', taskUtils.showTask);
+        taskUtils.taskList();
     break;
 };
