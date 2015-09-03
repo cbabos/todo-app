@@ -1,5 +1,6 @@
 var fs = require('fs');
 var path = require('path'); 
+var chalk = require('chalk');
 
 var taskUtil = {
     config: {
@@ -27,17 +28,25 @@ var taskUtil = {
 
         this.tasks.push(task);
     },
+    setTaskAttr: function(task, paramName, value) {
+        task[paramName] = value;
+        return task;
+    },
     delTask: function( task ) {
-        return this.setTaskAttr(task, 'task_id', 0);
+        return taskUtil.setTaskAttr(task, 'task_id', 0);
     },
     setComplete: function( task ) {
-        return this.setTaskAttr(task, 'completed', true);
+        return taskUtil.setTaskAttr(task, 'completed', true);
     },
     setInComplete: function( task ) {
-        return this.setTaskAttr(task, 'completed', false);
+        return taskUtil.setTaskAttr(task, 'completed', false);
     }, 
     showTask: function( task ) {
-        console.log(task);
+        var titleStyle = task.completed ? chalk.bold.yellow : chalk.bold.red;
+
+        console.log(titleStyle(task.title + ' (' + task.created + ')' +
+            "\n===========================================\n") +
+            chalk.white(task.description) + "\n\n")
         return task;
     }, 
     searchTask: function( searchString, cb ) {
@@ -49,10 +58,6 @@ var taskUtil = {
             return current;
         });  
     }, 
-    setTaskAttr: function(task, paramName, value) {
-        task[paramName] = value;
-        return task;
-    },
     writeTasks: function() {
         var that = this;
 
@@ -69,4 +74,4 @@ var taskUtil = {
 
 taskUtil.loadTasks();
 
-module.exports =  taskUtil;
+module.exports = taskUtil;

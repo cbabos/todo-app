@@ -9,5 +9,8 @@
   },
   "author": "cbabos",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "chalk": "^1.1.1"
+  }
 }
