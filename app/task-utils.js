@@ -1,6 +1,7 @@
 var fs = require('fs');
 var path = require('path'); 
 var chalk = require('chalk');
+var moment = require('moment');
 
 var taskUtil = {
     config: {
@@ -44,7 +45,8 @@ var taskUtil = {
     showTask: function( task ) {
         var titleStyle = task.completed ? chalk.bold.yellow : chalk.bold.red;
 
-        console.log(titleStyle(task.title + ' (' + task.created + ')' +
+        console.log(titleStyle(task.title + ' (' + 
+            moment(task.created).fromNow()  + ')' +
             "\n===========================================\n") +
             chalk.white(task.description) + "\n\n")
         return task;
