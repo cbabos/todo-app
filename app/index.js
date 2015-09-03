@@ -52,6 +52,7 @@ switch (process.argv[2]) {
         if (process.argv[3]) {
             taskUtils.searchTask(process.argv[3], taskUtils.showTask);
         }
+        break;
     default:
     case 'list': 
         taskUtils.taskList();
