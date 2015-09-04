@@ -53,6 +53,7 @@ var taskUtil = {
     }, 
     taskList: function() {
         this.tasks.forEach(function(current) {
+            if (current.completed) return;
             var titleStyle = current.completed ?
                 chalk.bold.yellow : chalk.bold.red;
 
